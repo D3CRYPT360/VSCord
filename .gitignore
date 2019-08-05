@@ -1,0 +1,5 @@
+node_modules
+.vscode-test/
+*.vsix
+scripts
+vsc-extension-quickstart.md

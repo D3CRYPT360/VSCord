@@ -1,0 +1,544 @@
+{
+    "Add a Python docstring": {
+        "body": [
+            "'''",
+            ": $1",
+            "'''"
+        ],
+        "description": "Add a docstring",
+        "prefix": "doc"
+    },
+    "Basic discord.py bot setup": {
+        "body": [
+            "import discord",
+            "TOKEN = '$1'",
+            "client = discord.Client()",
+            "",
+            "",
+            "@client.event",
+            "async def on_ready():",
+            "    print(f'Logged in as: {client.user.name}')",
+            "    print(f'With ID: {client.user.id}')",
+            "",
+            "",
+            "client.run(TOKEN)"
+        ],
+        "description": "Basic discord.py bot setup",
+        "prefix": "discord.client"
+    },
+    "Basic discord.py bot setup w/ commands extension": {
+        "body": [
+            "import discord",
+            "from discord.ext import commands",
+            "TOKEN = '$1'",
+            "bot = commands.Bot(command_prefix='${2:!}')",
+            "",
+            "",
+            "@bot.event",
+            "async def on_ready():",
+            "    print(f'Logged in as: {bot.user.name}')",
+            "    print(f'With ID: {bot.user.id}')",
+            "",
+            "",
+            "@bot.command($3)",
+            "async def ${4:ping}(ctx):",
+            "    ${5:await ctx.send('pong')}",
+            "",
+            "",
+            "bot.run(TOKEN)"
+        ],
+        "description": "Basic discord.py bot setup w/ commands extension",
+        "prefix": "discord.commands.bot"
+    },
+    "Basic extension layout for discord.py": {
+        "body": [
+            "import discord",
+            "from discord.ext import commands",
+            "",
+            "",
+            "class ${1:Cog}(commands.Cog):",
+            "    def __init__(self, bot):",
+            "        self.bot=bot",
+            "",
+            "",
+            "    @commands.Cog.listener()",
+            "    async def on_ready(self):",
+            "        print(f'loaded cog: {self.__name__}",
+            "",
+            "",
+            "def setup(bot):",
+            "    bot.add_cog${1:Cog}(bot))"
+        ],
+        "description": "Basic extension layout for discord.py",
+        "prefix": "commands.bot.extension"
+    },
+    "commands.command": {
+        "body": [
+            "@${1:bot}.command($2)",
+            "async def ${3:ping}(${4}ctx${5}):",
+            "    ${6:print(ctx.author)}"
+        ],
+        "description": "Create a bot command",
+        "prefix": "commands.command"
+    },
+    "discord.on_bulk_message_delete": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_bulk_message_delete(messages):",
+            "    ${2:print(messages}",
+            ")}"
+        ],
+        "description": "Called when messages are bulk deleted. If none of the messages deleted\nare found in the internal message cache, then this event will not be called.\nIf individual messages were not found in the internal message cache,\nthis event will still be called, but the messages not found will not be included in\nthe messages list. Messages might not be in cache if the message is too old\nor the client is participating in high traffic guilds.",
+        "prefix": "event.on_bulk_message_delete"
+    },
+    "discord.on_connect": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_connect():",
+            "    ${2:print(None}",
+            ")}"
+        ],
+        "description": "Called when the client has successfully connected to Discord. This is not\nthe same as the client being fully prepared, see on_ready() for that.",
+        "prefix": "event.on_connect"
+    },
+    "discord.on_disconnect": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_disconnect():",
+            "    ${2:print(None}",
+            ")}"
+        ],
+        "description": "Called when the client has disconnected from Discord. This could happen either through\nthe internet being disconnected, explicit calls to logout, or Discord terminating the connection\none way or the other.",
+        "prefix": "event.on_disconnect"
+    },
+    "discord.on_error": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_error(event, args, kwargs):",
+            "    ${2:print(event, args, kwargs}",
+            ")}"
+        ],
+        "description": "Usually when an event raises an uncaught exception, a traceback is\nprinted to stderr and the exception is ignored. If you want to\nchange this behaviour and handle the exception for whatever reason\nyourself, this event can be overridden. Which, when done, will\nsuppress the default action of printing the traceback.",
+        "prefix": "event.on_error"
+    },
+    "discord.on_group_join": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_group_join(channel, user, channel, user):",
+            "    ${2:print(channel, user, channel, user}",
+            ")}"
+        ],
+        "description": "Called when someone joins or leaves a GroupChannel.",
+        "prefix": "event.on_group_join"
+    },
+    "discord.on_guild_available": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_available(guild, guild):",
+            "    ${2:print(guild, guild}",
+            ")}"
+        ],
+        "description": "Called when a guild becomes available or unavailable. The guild must have\nexisted in the Client.guilds cache.",
+        "prefix": "event.on_guild_available"
+    },
+    "discord.on_guild_channel_delete": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_channel_delete(channel, channel):",
+            "    ${2:print(channel, channel}",
+            ")}"
+        ],
+        "description": "Called whenever a guild channel is deleted or created.",
+        "prefix": "event.on_guild_channel_delete"
+    },
+    "discord.on_guild_channel_pins_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_channel_pins_update(channel, last_pin):",
+            "    ${2:print(channel, last_pin}",
+            ")}"
+        ],
+        "description": "Called whenever a message is pinned or unpinned from a guild channel.",
+        "prefix": "event.on_guild_channel_pins_update"
+    },
+    "discord.on_guild_channel_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_channel_update(before, after):",
+            "    ${2:print(before, after}",
+            ")}"
+        ],
+        "description": "Called whenever a guild channel is updated. e.g. changed name, topic, permissions.",
+        "prefix": "event.on_guild_channel_update"
+    },
+    "discord.on_guild_emojis_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_emojis_update(guild, before, after):",
+            "    ${2:print(guild, before, after}",
+            ")}"
+        ],
+        "description": "Called when a Guild adds or removes Emoji.",
+        "prefix": "event.on_guild_emojis_update"
+    },
+    "discord.on_guild_integrations_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_integrations_update(guild):",
+            "    ${2:print(guild}",
+            ")}"
+        ],
+        "description": "Called whenever an integration is created, modified, or removed from a guild.",
+        "prefix": "event.on_guild_integrations_update"
+    },
+    "discord.on_guild_join": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_join(guild):",
+            "    ${2:print(guild}",
+            ")}"
+        ],
+        "description": "Called when a Guild is either created by the Client or when the\nClient joins a guild.",
+        "prefix": "event.on_guild_join"
+    },
+    "discord.on_guild_remove": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_remove(guild):",
+            "    ${2:print(guild}",
+            ")}"
+        ],
+        "description": "Called when a Guild is removed from the Client.",
+        "prefix": "event.on_guild_remove"
+    },
+    "discord.on_guild_role_create": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_role_create(role, role):",
+            "    ${2:print(role, role}",
+            ")}"
+        ],
+        "description": "Called when a Guild creates or deletes a new Role.",
+        "prefix": "event.on_guild_role_create"
+    },
+    "discord.on_guild_role_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_role_update(before, after):",
+            "    ${2:print(before, after}",
+            ")}"
+        ],
+        "description": "Called when a Role is changed guild-wide.",
+        "prefix": "event.on_guild_role_update"
+    },
+    "discord.on_guild_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_guild_update(before, after):",
+            "    ${2:print(before, after}",
+            ")}"
+        ],
+        "description": "Called when a Guild updates, for example:",
+        "prefix": "event.on_guild_update"
+    },
+    "discord.on_member_ban": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_member_ban(guild, user):",
+            "    ${2:print(guild, user}",
+            ")}"
+        ],
+        "description": "Called when user gets banned from a Guild.",
+        "prefix": "event.on_member_ban"
+    },
+    "discord.on_member_join": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_member_join(member, member):",
+            "    ${2:print(member, member}",
+            ")}"
+        ],
+        "description": "Called when a Member leaves or joins a Guild.",
+        "prefix": "event.on_member_join"
+    },
+    "discord.on_member_unban": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_member_unban(guild, user):",
+            "    ${2:print(guild, user}",
+            ")}"
+        ],
+        "description": "Called when a User gets unbanned from a Guild.",
+        "prefix": "event.on_member_unban"
+    },
+    "discord.on_member_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_member_update(before, after):",
+            "    ${2:print(before, after}",
+            ")}"
+        ],
+        "description": "Called when a Member updates their profile.",
+        "prefix": "event.on_member_update"
+    },
+    "discord.on_message": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_message(message):",
+            "    ${2:print(message}",
+            ")}"
+        ],
+        "description": "Called when a Message is created and sent.",
+        "prefix": "event.on_message"
+    },
+    "discord.on_message_delete": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_message_delete(message):",
+            "    ${2:print(message}",
+            ")}"
+        ],
+        "description": "Called when a message is deleted. If the message is not found in the\ninternal message cache, then this event will not be called.\nMessages might not be in cache if the message is too old\nor the client is participating in high traffic guilds.",
+        "prefix": "event.on_message_delete"
+    },
+    "discord.on_message_edit": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_message_edit(before, after):",
+            "    ${2:print(before, after}",
+            ")}"
+        ],
+        "description": "Called when a Message receives an update event. If the message is not found\nin the internal message cache, then these events will not be called.\nMessages might not be in cache if the message is too old\nor the client is participating in high traffic guilds.",
+        "prefix": "event.on_message_edit"
+    },
+    "discord.on_private_channel_delete": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_private_channel_delete(channel, channel):",
+            "    ${2:print(channel, channel}",
+            ")}"
+        ],
+        "description": "Called whenever a private channel is deleted or created.",
+        "prefix": "event.on_private_channel_delete"
+    },
+    "discord.on_private_channel_pins_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_private_channel_pins_update(channel, last_pin):",
+            "    ${2:print(channel, last_pin}",
+            ")}"
+        ],
+        "description": "Called whenever a message is pinned or unpinned from a private channel.",
+        "prefix": "event.on_private_channel_pins_update"
+    },
+    "discord.on_private_channel_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_private_channel_update(before, after):",
+            "    ${2:print(before, after}",
+            ")}"
+        ],
+        "description": "Called whenever a private group DM is updated. e.g. changed name or topic.",
+        "prefix": "event.on_private_channel_update"
+    },
+    "discord.on_raw_bulk_message_delete": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_raw_bulk_message_delete(payload):",
+            "    ${2:print(payload}",
+            ")}"
+        ],
+        "description": "Called when a bulk delete is triggered. Unlike on_bulk_message_delete(), this is\ncalled regardless of the messages being in the internal message cache or not.",
+        "prefix": "event.on_raw_bulk_message_delete"
+    },
+    "discord.on_raw_message_delete": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_raw_message_delete(payload):",
+            "    ${2:print(payload}",
+            ")}"
+        ],
+        "description": "Called when a message is deleted. Unlike on_message_delete(), this is\ncalled regardless of the message being in the internal message cache or not.",
+        "prefix": "event.on_raw_message_delete"
+    },
+    "discord.on_raw_message_edit": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_raw_message_edit(payload):",
+            "    ${2:print(payload}",
+            ")}"
+        ],
+        "description": "Called when a message is edited. Unlike on_message_edit(), this is called\nregardless of the state of the internal message cache.",
+        "prefix": "event.on_raw_message_edit"
+    },
+    "discord.on_raw_reaction_add": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_raw_reaction_add(payload):",
+            "    ${2:print(payload}",
+            ")}"
+        ],
+        "description": "Called when a message has a reaction added. Unlike on_reaction_add(), this is\ncalled regardless of the state of the internal message cache.",
+        "prefix": "event.on_raw_reaction_add"
+    },
+    "discord.on_raw_reaction_clear": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_raw_reaction_clear(payload):",
+            "    ${2:print(payload}",
+            ")}"
+        ],
+        "description": "Called when a message has all its reactions removed. Unlike on_reaction_clear(),\nthis is called regardless of the state of the internal message cache.",
+        "prefix": "event.on_raw_reaction_clear"
+    },
+    "discord.on_raw_reaction_remove": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_raw_reaction_remove(payload):",
+            "    ${2:print(payload}",
+            ")}"
+        ],
+        "description": "Called when a message has a reaction removed. Unlike on_reaction_remove(), this is\ncalled regardless of the state of the internal message cache.",
+        "prefix": "event.on_raw_reaction_remove"
+    },
+    "discord.on_reaction_add": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_reaction_add(reaction, user):",
+            "    ${2:print(reaction, user}",
+            ")}"
+        ],
+        "description": "Called when a message has a reaction added to it. Similar to on_message_edit(),\nif the message is not found in the internal message cache, then this\nevent will not be called.",
+        "prefix": "event.on_reaction_add"
+    },
+    "discord.on_reaction_clear": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_reaction_clear(message, reactions):",
+            "    ${2:print(message, reactions}",
+            ")}"
+        ],
+        "description": "Called when a message has all its reactions removed from it. Similar to on_message_edit(),\nif the message is not found in the internal message cache, then this event\nwill not be called.",
+        "prefix": "event.on_reaction_clear"
+    },
+    "discord.on_reaction_remove": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_reaction_remove(reaction, user):",
+            "    ${2:print(reaction, user}",
+            ")}"
+        ],
+        "description": "Called when a message has a reaction removed from it. Similar to on_message_edit,\nif the message is not found in the internal message cache, then this event\nwill not be called.",
+        "prefix": "event.on_reaction_remove"
+    },
+    "discord.on_ready": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_ready():",
+            "    ${2:print(None}",
+            ")}"
+        ],
+        "description": "Called when the client is done preparing the data received from Discord. Usually after login is successful\nand the Client.guilds and co. are filled up.",
+        "prefix": "event.on_ready"
+    },
+    "discord.on_relationship_add": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_relationship_add(relationship, relationship):",
+            "    ${2:print(relationship, relationship}",
+            ")}"
+        ],
+        "description": "Called when a Relationship is added or removed from the\nClientUser.",
+        "prefix": "event.on_relationship_add"
+    },
+    "discord.on_relationship_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_relationship_update(before, after):",
+            "    ${2:print(before, after}",
+            ")}"
+        ],
+        "description": "Called when a Relationship is updated, e.g. when you\nblock a friend or a friendship is accepted.",
+        "prefix": "event.on_relationship_update"
+    },
+    "discord.on_resumed": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_resumed():",
+            "    ${2:print(None}",
+            ")}"
+        ],
+        "description": "Called when the client has resumed a session.",
+        "prefix": "event.on_resumed"
+    },
+    "discord.on_shard_ready": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_shard_ready(shard_id):",
+            "    ${2:print(shard_id}",
+            ")}"
+        ],
+        "description": "Similar to on_ready() except used by AutoShardedClient\nto denote when a particular shard ID has become ready.",
+        "prefix": "event.on_shard_ready"
+    },
+    "discord.on_socket_raw_receive": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_socket_raw_receive(msg):",
+            "    ${2:print(msg}",
+            ")}"
+        ],
+        "description": "Called whenever a message is received from the WebSocket, before\nit\u00e2\u0080\u0099s processed. This event is always dispatched when a message is\nreceived and the passed data is not processed in any way.",
+        "prefix": "event.on_socket_raw_receive"
+    },
+    "discord.on_socket_raw_send": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_socket_raw_send(payload):",
+            "    ${2:print(payload}",
+            ")}"
+        ],
+        "description": "Called whenever a send operation is done on the WebSocket before the\nmessage is sent. The passed parameter is the message that is being\nsent to the WebSocket.",
+        "prefix": "event.on_socket_raw_send"
+    },
+    "discord.on_typing": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_typing(channel, user, when):",
+            "    ${2:print(channel, user, when}",
+            ")}"
+        ],
+        "description": "Called when someone begins typing a message.",
+        "prefix": "event.on_typing"
+    },
+    "discord.on_user_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_user_update(before, after):",
+            "    ${2:print(before, after}",
+            ")}"
+        ],
+        "description": "Called when a User updates their profile.",
+        "prefix": "event.on_user_update"
+    },
+    "discord.on_voice_state_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_voice_state_update(member, before, after):",
+            "    ${2:print(member, before, after}",
+            ")}"
+        ],
+        "description": "Called when a Member changes their VoiceState.",
+        "prefix": "event.on_voice_state_update"
+    },
+    "discord.on_webhooks_update": {
+        "body": [
+            "@${1:bot}.event",
+            "async def on_webhooks_update(channel):",
+            "    ${2:print(channel}",
+            ")}"
+        ],
+        "description": "Called whenever a webhook is created, modified, or removed from a guild channel.",
+        "prefix": "event.on_webhooks_update"
+    }
+}

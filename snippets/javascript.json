@@ -1,0 +1,445 @@
+{
+    "Basic bot framework for discord.js": {
+        "body": [
+            "const Discord = require('discord.js');",
+            "const ${1:client} = new Discord.Client();",
+            "",
+            "${1:client}.on('ready', () => {",
+            "  console.log(`Logged in as ${${1:client}.user.tag}!`);",
+            "});",
+            "",
+            "${1:client}.on('message', msg => {",
+            "  if (msg.content === 'ping') {",
+            "    msg.reply('Pong!');",
+            "  }",
+            "});",
+            "",
+            "${1:client}.login('${2:token}');"
+        ],
+        "description": "Basic bot framework for discord.js",
+        "prefix": "discord.client"
+    },
+    "channelCreate": {
+        "body": [
+            "${1:client}.on('channelCreate', (channel) => {",
+            "    ${2:console.log(channel);}",
+            "});"
+        ],
+        "description": "Emitted whenever a channel is created.\n",
+        "prefix": "event.channelCreate"
+    },
+    "channelDelete": {
+        "body": [
+            "${1:client}.on('channelDelete', (channel) => {",
+            "    ${2:console.log(channel);}",
+            "});"
+        ],
+        "description": "Emitted whenever a channel is deleted.\n",
+        "prefix": "event.channelDelete"
+    },
+    "channelPinsUpdate": {
+        "body": [
+            "${1:client}.on('channelPinsUpdate', (channel, time) => {",
+            "    ${2:console.log(channel, time);}",
+            "});"
+        ],
+        "description": "Emitted whenever the pins of a channel are updated. Due to the nature of the WebSocket event, not much information\ncan be provided easily here - you need to manually check the pins yourself.\nThe time parameter will be a Unix Epoch Date object when there are no pins left.",
+        "prefix": "event.channelPinsUpdate"
+    },
+    "channelUpdate": {
+        "body": [
+            "${1:client}.on('channelUpdate', (oldChannel, newChannel) => {",
+            "    ${2:console.log(oldChannel, newChannel);}",
+            "});"
+        ],
+        "description": "Emitted whenever a channel is updated - e.g. name change, topic change.\n",
+        "prefix": "event.channelUpdate"
+    },
+    "clientUserGuildSettingsUpdate": {
+        "body": [
+            "${1:client}.on('clientUserGuildSettingsUpdate', (clientUserGuildSettings) => {",
+            "    ${2:console.log(clientUserGuildSettings);}",
+            "});"
+        ],
+        "description": "Emitted whenever the client user's settings update.\n",
+        "prefix": "event.clientUserGuildSettingsUpdate"
+    },
+    "clientUserSettingsUpdate": {
+        "body": [
+            "${1:client}.on('clientUserSettingsUpdate', (clientUserSettings) => {",
+            "    ${2:console.log(clientUserSettings);}",
+            "});"
+        ],
+        "description": "Emitted when the client user's settings update.\n",
+        "prefix": "event.clientUserSettingsUpdate"
+    },
+    "debug": {
+        "body": [
+            "${1:client}.on('debug', (info) => {",
+            "    ${2:console.log(info);}",
+            "});"
+        ],
+        "description": "Emitted for general debugging information.\n",
+        "prefix": "event.debug"
+    },
+    "disconnect": {
+        "body": [
+            "${1:client}.on('disconnect', (event) => {",
+            "    ${2:console.log(event);}",
+            "});"
+        ],
+        "description": "Emitted when the client's WebSocket disconnects and will no longer attempt to reconnect.\n",
+        "prefix": "event.disconnect"
+    },
+    "emojiCreate": {
+        "body": [
+            "${1:client}.on('emojiCreate', (emoji) => {",
+            "    ${2:console.log(emoji);}",
+            "});"
+        ],
+        "description": "Emitted whenever a custom emoji is created in a guild.\n",
+        "prefix": "event.emojiCreate"
+    },
+    "emojiDelete": {
+        "body": [
+            "${1:client}.on('emojiDelete', (emoji) => {",
+            "    ${2:console.log(emoji);}",
+            "});"
+        ],
+        "description": "Emitted whenever a custom guild emoji is deleted.\n",
+        "prefix": "event.emojiDelete"
+    },
+    "emojiUpdate": {
+        "body": [
+            "${1:client}.on('emojiUpdate', (oldEmoji, newEmoji) => {",
+            "    ${2:console.log(oldEmoji, newEmoji);}",
+            "});"
+        ],
+        "description": "Emitted whenever a custom guild emoji is updated.\n",
+        "prefix": "event.emojiUpdate"
+    },
+    "error": {
+        "body": [
+            "${1:client}.on('error', (error) => {",
+            "    ${2:console.log(error);}",
+            "});"
+        ],
+        "description": "Emitted whenever the client's WebSocket encounters a connection error.\n",
+        "prefix": "event.error"
+    },
+    "guildBanAdd": {
+        "body": [
+            "${1:client}.on('guildBanAdd', (guild, user) => {",
+            "    ${2:console.log(guild, user);}",
+            "});"
+        ],
+        "description": "Emitted whenever a member is banned from a guild.\n",
+        "prefix": "event.guildBanAdd"
+    },
+    "guildBanRemove": {
+        "body": [
+            "${1:client}.on('guildBanRemove', (guild, user) => {",
+            "    ${2:console.log(guild, user);}",
+            "});"
+        ],
+        "description": "Emitted whenever a member is unbanned from a guild.\n",
+        "prefix": "event.guildBanRemove"
+    },
+    "guildCreate": {
+        "body": [
+            "${1:client}.on('guildCreate', (guild) => {",
+            "    ${2:console.log(guild);}",
+            "});"
+        ],
+        "description": "Emitted whenever the client joins a guild.\n",
+        "prefix": "event.guildCreate"
+    },
+    "guildDelete": {
+        "body": [
+            "${1:client}.on('guildDelete', (guild) => {",
+            "    ${2:console.log(guild);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild is deleted/left.\n",
+        "prefix": "event.guildDelete"
+    },
+    "guildIntegrationsUpdate": {
+        "body": [
+            "${1:client}.on('guildIntegrationsUpdate', (guild) => {",
+            "    ${2:console.log(guild);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild integration is updated\n",
+        "prefix": "event.guildIntegrationsUpdate"
+    },
+    "guildMemberAdd": {
+        "body": [
+            "${1:client}.on('guildMemberAdd', (member) => {",
+            "    ${2:console.log(member);}",
+            "});"
+        ],
+        "description": "Emitted whenever a user joins a guild.\n",
+        "prefix": "event.guildMemberAdd"
+    },
+    "guildMemberAvailable": {
+        "body": [
+            "${1:client}.on('guildMemberAvailable', (member) => {",
+            "    ${2:console.log(member);}",
+            "});"
+        ],
+        "description": "Emitted whenever a member becomes available in a large guild.\n",
+        "prefix": "event.guildMemberAvailable"
+    },
+    "guildMemberRemove": {
+        "body": [
+            "${1:client}.on('guildMemberRemove', (member) => {",
+            "    ${2:console.log(member);}",
+            "});"
+        ],
+        "description": "Emitted whenever a member leaves a guild, or is kicked.\n",
+        "prefix": "event.guildMemberRemove"
+    },
+    "guildMemberSpeaking": {
+        "body": [
+            "${1:client}.on('guildMemberSpeaking', (member, speaking) => {",
+            "    ${2:console.log(member, speaking);}",
+            "});"
+        ],
+        "description": "Emitted once a guild member starts/stops speaking.\n",
+        "prefix": "event.guildMemberSpeaking"
+    },
+    "guildMemberUpdate": {
+        "body": [
+            "${1:client}.on('guildMemberUpdate', (oldMember, newMember) => {",
+            "    ${2:console.log(oldMember, newMember);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild member changes - i.e. new role, removed role, nickname.\n",
+        "prefix": "event.guildMemberUpdate"
+    },
+    "guildMembersChunk": {
+        "body": [
+            "${1:client}.on('guildMembersChunk', (members, guild) => {",
+            "    ${2:console.log(members, guild);}",
+            "});"
+        ],
+        "description": "Emitted whenever a chunk of guild members is received (all members come from the same guild).\n",
+        "prefix": "event.guildMembersChunk"
+    },
+    "guildUnavailable": {
+        "body": [
+            "${1:client}.on('guildUnavailable', (guild) => {",
+            "    ${2:console.log(guild);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild becomes unavailable, likely due to a server outage.\n",
+        "prefix": "event.guildUnavailable"
+    },
+    "guildUpdate": {
+        "body": [
+            "${1:client}.on('guildUpdate', (oldGuild, newGuild) => {",
+            "    ${2:console.log(oldGuild, newGuild);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild is updated - e.g. name change.\n",
+        "prefix": "event.guildUpdate"
+    },
+    "message": {
+        "body": [
+            "${1:client}.on('message', (message) => {",
+            "    ${2:console.log(message);}",
+            "});"
+        ],
+        "description": "Emitted whenever a message is created.\n",
+        "prefix": "event.message"
+    },
+    "messageDelete": {
+        "body": [
+            "${1:client}.on('messageDelete', (message) => {",
+            "    ${2:console.log(message);}",
+            "});"
+        ],
+        "description": "Emitted whenever a message is deleted.\n",
+        "prefix": "event.messageDelete"
+    },
+    "messageDeleteBulk": {
+        "body": [
+            "${1:client}.on('messageDeleteBulk', (messages) => {",
+            "    ${2:console.log(messages);}",
+            "});"
+        ],
+        "description": "Emitted whenever messages are deleted in bulk.\n",
+        "prefix": "event.messageDeleteBulk"
+    },
+    "messageReactionAdd": {
+        "body": [
+            "${1:client}.on('messageReactionAdd', (messageReaction, user) => {",
+            "    ${2:console.log(messageReaction, user);}",
+            "});"
+        ],
+        "description": "Emitted whenever a reaction is added to a cached message.\n",
+        "prefix": "event.messageReactionAdd"
+    },
+    "messageReactionRemove": {
+        "body": [
+            "${1:client}.on('messageReactionRemove', (messageReaction, user) => {",
+            "    ${2:console.log(messageReaction, user);}",
+            "});"
+        ],
+        "description": "Emitted whenever a reaction is removed from a cached message.\n",
+        "prefix": "event.messageReactionRemove"
+    },
+    "messageReactionRemoveAll": {
+        "body": [
+            "${1:client}.on('messageReactionRemoveAll', (message) => {",
+            "    ${2:console.log(message);}",
+            "});"
+        ],
+        "description": "Emitted whenever all reactions are removed from a cached message.\n",
+        "prefix": "event.messageReactionRemoveAll"
+    },
+    "messageUpdate": {
+        "body": [
+            "${1:client}.on('messageUpdate', (oldMessage, newMessage) => {",
+            "    ${2:console.log(oldMessage, newMessage);}",
+            "});"
+        ],
+        "description": "Emitted whenever a message is updated - e.g. embed or content change.\n",
+        "prefix": "event.messageUpdate"
+    },
+    "presenceUpdate": {
+        "body": [
+            "${1:client}.on('presenceUpdate', (oldMember, newMember) => {",
+            "    ${2:console.log(oldMember, newMember);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild member's presence changes, or they change one of their details.\n",
+        "prefix": "event.presenceUpdate"
+    },
+    "rateLimit": {
+        "body": [
+            "${1:client}.on('rateLimit', (rateLimitInfo, rateLimitInfo.limit, rateLimitInfo.timeDifference, rateLimitInfo.path, rateLimitInfo.method) => {",
+            "    ${2:console.log(rateLimitInfo, rateLimitInfo.limit, rateLimitInfo.timeDifference, rateLimitInfo.path, rateLimitInfo.method);}",
+            "});"
+        ],
+        "description": "Emitted when the client hits a rate limit while making a request\n",
+        "prefix": "event.rateLimit"
+    },
+    "ready": {
+        "body": [
+            "${1:client}.on('ready', () => {",
+            "    ${2:console.log(null);}",
+            "});"
+        ],
+        "description": "Emitted when the client becomes ready to start working.\n",
+        "prefix": "event.ready"
+    },
+    "reconnecting": {
+        "body": [
+            "${1:client}.on('reconnecting', () => {",
+            "    ${2:console.log(null);}",
+            "});"
+        ],
+        "description": "Emitted whenever the client tries to reconnect to the WebSocket.\n",
+        "prefix": "event.reconnecting"
+    },
+    "resume": {
+        "body": [
+            "${1:client}.on('resume', (replayed) => {",
+            "    ${2:console.log(replayed);}",
+            "});"
+        ],
+        "description": "Emitted whenever a WebSocket resumes.\n",
+        "prefix": "event.resume"
+    },
+    "roleCreate": {
+        "body": [
+            "${1:client}.on('roleCreate', (role) => {",
+            "    ${2:console.log(role);}",
+            "});"
+        ],
+        "description": "Emitted whenever a role is created.\n",
+        "prefix": "event.roleCreate"
+    },
+    "roleDelete": {
+        "body": [
+            "${1:client}.on('roleDelete', (role) => {",
+            "    ${2:console.log(role);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild role is deleted.\n",
+        "prefix": "event.roleDelete"
+    },
+    "roleUpdate": {
+        "body": [
+            "${1:client}.on('roleUpdate', (oldRole, newRole) => {",
+            "    ${2:console.log(oldRole, newRole);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild role is updated.\n",
+        "prefix": "event.roleUpdate"
+    },
+    "typingStart": {
+        "body": [
+            "${1:client}.on('typingStart', (channel, user) => {",
+            "    ${2:console.log(channel, user);}",
+            "});"
+        ],
+        "description": "Emitted whenever a user starts typing in a channel.\n",
+        "prefix": "event.typingStart"
+    },
+    "typingStop": {
+        "body": [
+            "${1:client}.on('typingStop', (channel, user) => {",
+            "    ${2:console.log(channel, user);}",
+            "});"
+        ],
+        "description": "Emitted whenever a user stops typing in a channel.\n",
+        "prefix": "event.typingStop"
+    },
+    "userNoteUpdate": {
+        "body": [
+            "${1:client}.on('userNoteUpdate', (user, oldNote, newNote) => {",
+            "    ${2:console.log(user, oldNote, newNote);}",
+            "});"
+        ],
+        "description": "Emitted whenever a note is updated.\n",
+        "prefix": "event.userNoteUpdate"
+    },
+    "userUpdate": {
+        "body": [
+            "${1:client}.on('userUpdate', (oldUser, newUser) => {",
+            "    ${2:console.log(oldUser, newUser);}",
+            "});"
+        ],
+        "description": "Emitted whenever a user's details (e.g. username) are changed.\n",
+        "prefix": "event.userUpdate"
+    },
+    "voiceStateUpdate": {
+        "body": [
+            "${1:client}.on('voiceStateUpdate', (oldMember, newMember) => {",
+            "    ${2:console.log(oldMember, newMember);}",
+            "});"
+        ],
+        "description": "Emitted whenever a user changes voice state - e.g. joins/leaves a channel, mutes/unmutes.\n",
+        "prefix": "event.voiceStateUpdate"
+    },
+    "warn": {
+        "body": [
+            "${1:client}.on('warn', (info) => {",
+            "    ${2:console.log(info);}",
+            "});"
+        ],
+        "description": "Emitted for general warnings.\n",
+        "prefix": "event.warn"
+    },
+    "webhookUpdate": {
+        "body": [
+            "${1:client}.on('webhookUpdate', (channel) => {",
+            "    ${2:console.log(channel);}",
+            "});"
+        ],
+        "description": "Emitted whenever a guild text channel has its webhooks changed.\n",
+        "prefix": "event.webhookUpdate"
+    }
+}

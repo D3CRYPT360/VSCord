@@ -1,0 +1,79 @@
+{
+	"name": "vscord",
+	"displayName": "VSCord",
+	"description": "Discord bot development helper",
+	"version": "0.5.0",
+	"engines": {
+		"vscode": "^1.36.0"
+	},
+	"keywords": [
+		"discord",
+		"discord.py",
+		"discord.js",
+		"discord bot"
+	],
+	"icon": "resources/icon.png",
+	"categories": [
+		"Other",
+		"Snippets"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/stroupbslayen/vscord"
+	},
+	"activationEvents": [
+		"onCommand:extension.runJS",
+		"onCommand:extension.installLibrary"
+	],
+	"main": "./src/extension.js",
+	"contributes": {
+		"snippets": [
+			{
+				"language": "python",
+				"path": "./snippets/python.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./snippets/javascript.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "extension.runJS",
+				"title": "Run JavaScript file in terminal"
+			},
+			{
+				"command": "extension.installLibrary",
+				"title": "Install Discord API Library"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "extension.installLibrary"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "extension.runJS",
+					"group": "VSCode@1",
+					"when": "resourceLangId == javascript"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.36.0",
+		"eslint": "^5.13.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.0.2"
+	}
+}
