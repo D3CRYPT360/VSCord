@@ -1,6 +1,6 @@
 # VSCord for Visual Studio Code
 
-This extension adds some sommon snippets and a few other tools to make discord bot development a bit easier.
+This extension adds some common snippets and a few other tools to make discord bot development a bit easier.
 
 # Features
 
