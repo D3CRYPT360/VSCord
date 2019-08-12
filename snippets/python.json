@@ -63,11 +63,11 @@
             "",
             "    @commands.Cog.listener()",
             "    async def on_ready(self):",
-            "        print(f'loaded cog: {self.__name__}",
+            "        print(f'loaded cog: {self.__name__}')",
             "",
             "",
             "def setup(bot):",
-            "    bot.add_cog${1:Cog}(bot))"
+            "    bot.add_cog(${1:Cog}(bot))"
         ],
         "description": "Basic extension layout for discord.py",
         "prefix": "commands.bot.extension"

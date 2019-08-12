@@ -36,7 +36,7 @@ This extension adds some common snippets and a few other tools to make discord b
 
 - This extension has only been tested on Windows 10
 
-### 0.5.0
+### 0.5.1
 
 Test release of VSCord
 
